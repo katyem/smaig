@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1601411132195.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "9BAC1589",
+    "lastKnownWriteTime" : 1597091050,
+    "last_content_update" : 1597091050,
+    "path" : "D:/R stuff/AIG/SMAIGpkg21.R",
+    "project_path" : "SMAIGpkg21.R",
+    "properties" : {
+        "cursorPosition" : "239,9",
+        "scrollLine" : "233"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
