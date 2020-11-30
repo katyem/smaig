@@ -1,6 +1,6 @@
 #install.packages('magrittr')
 #install.packages("magick", verbose=TRUE)
-setwd("D:/R stuff/AIG") #My AIG files
+setwd("D:/R stuff/smaig") #My AIG files
 #library('tidyverse') #tibble vs table
 library('magick')
 library('rgl') 
@@ -10,7 +10,7 @@ library('magrittr')
 #install.packages("openxlsx")
 library("openxlsx")
 
-source("SMAIGpkg21.R")
+source("SMAIGpkg.R")
 
 SMAIGtable <- read.xlsx("SMAIG.xlsx")  # read first sheet of your deck of stacks
 #head(SMAIGtable[, 1:5])

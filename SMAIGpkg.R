@@ -1,7 +1,7 @@
 ## Load all functions below
 
 #-----------------------------------------------------------------------------------
-notafunction <- function() {
+notafunction <- function() {  # a bit of a sandbox
 open3d()
 open3d(params = getr3dDefaults())
 select3d()
