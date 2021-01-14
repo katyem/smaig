@@ -4,14 +4,20 @@ library(xlsx)
 getwd()
 setwd("D:/R stuff/smaig/SMAIG occlusion/")
 im_names <- list.files (path = "AIGpics/"); #folder with pictures in your working directory
+im_names[43]
 
 cnt = 1
 colorCount <- matrix(ncol = NROW(im_names)+1)  # set up matrix 
+##colorCount <- matrix(im_names, nrow=1, byrow=FALSE)
 
+  
 for (imName in im_names) {
-  temp <- paste("AIG/", imName, sep='');
+  temp <- paste("AIGpics/", imName, sep='');  ## CHANGE to appropriate folder (see path above - line6)
   im <- load.image(temp);  #sets the name of the image in the loop que
-  cnt = cnt+1; # first row = 2 because row 1 is all N/A
+  
+  
+  
+  cnt = cnt+1; # first row = 2 because row 1 is all N/A  ??????????  Isn't cnt a column cnt?
   cntColors = 0; #track the number of colors in this image
   
   for (x in 1:400) {  # width = 400 pixels
@@ -36,26 +42,21 @@ for (imName in im_names) {
       }
     }
   }  
-  print(imName);  
+  print(imName);  print(cnt);
 }
 
 
-colorCount <- colorCount[-1,-1]; #Delete the empty first row
+## colorCount <- colorCount[-1,-1]; #Delete the empty first row
+colorCount[1,1] <- "color code"
+  cnt = 1
+for (imName in im_names) {
+  cnt = cnt+1
+  colorCount[1,cnt] <- imName
+}
+  
 
-write.xlsx(colorCount, "colorCount.xlsx") # each column = image; rows = colors (.1-1)
+write.xlsx(colorCount, "colorCount.xlsx", col.names=FALSE, row.names=FALSE) # each column = image; rows = color categories (.1-1)
 
-##### STOP HERE  #############
-# How to process/report output?
-# percentage of change (JND)? absolute value of amount of change/highest value
 
-# the following assumes the data are in order of paired stacks.
-im_cnt = 1;
-a = ncol(colorCount)/2; #loop once for each pair
-loop_cnt = sign(a) * floor(abs(a)) # if there were an odd number of images, round down so the code won't crash
-
-for(i in 1:loop_cnt) {
-  temp = blah #count of first stack minus count of second stack
-  im_cnt = im_cnt+2;
-  }
 
 
