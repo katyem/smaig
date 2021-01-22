@@ -1,15 +1,10 @@
-# smaig
-Shepard-Metzler 
-
-
-
-
 # Shepard-Metzler Automated Item Generation (SMAIG) project
 * R functions using the rgl graphics package to build 3D models. 
 
 * Working our way to a package that generates Shepard-Metzler test images.
 
-**The current code will genderate images and allow the user to manipulate images and save the coordiates to a spreadsheet.
+* The current code will genderate images and allow the user to manipulate images and save the coordiates to a spreadsheet.
+* The [SMAIG occlusion project](https://github.com/katyem/SMAIG_occlusion) is now in its own project repository.
 
 ## Getting Started
 
