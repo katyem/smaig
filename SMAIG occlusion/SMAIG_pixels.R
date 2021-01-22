@@ -3,7 +3,7 @@ library('imager')
 library(xlsx) 
 getwd()
 setwd("D:/R stuff/smaig/SMAIG occlusion/")
-picPath <- "AIGpics/"  ## CHANGE to appropriate image sub-folder
+picPath <- "AIG-6/"  ## CHANGE to appropriate image sub-folder
 im_names <- list.files (path = picPath); #folder with pictures in your working directory
 
 cnt = 1
@@ -12,15 +12,15 @@ colorCount <- matrix(ncol = NROW(im_names)+1)  # set up matrix
 for (imName in im_names) {
   temp <- paste(picPath, imName, sep='');  
   im <- load.image(temp);  #sets the name of the image in the loop que
-  cnt = cnt+1; # first row = 2 because row 1 is all N/A  ??????????  Isn't cnt a column cnt?
+  cnt = cnt+1; # column cnt: first column is used for color categories/codes
   cntColors = 0; #track the number of colors in this image
   
   for (x in 1:400) {  # width = 400 pixels
     for (y in 1:400) {  # height = 400 pixels
-      thisColor <- round(as.numeric(im[x,y,1,1]), 1) # The color (rounded) of the pixel at location x,y
-        if ( thisColor != 0) {  # if the color is not black
+      thisColor <- as.numeric(im[x,y,1,1]) # The color (rounded) of the pixel at location x,y
+      #  if ( thisColor != 0) {  # if the color is not black
           #search colorCount for thisColor
-          thisMatch = match(thisColor, colorCount);
+          thisMatch = as.numeric(match(thisColor, colorCount));
             if (!is.na(thisMatch) & thisMatch > nrow(colorCount)) {  # match wasn't in first column
               thisMatch <- NA;
             }
@@ -34,11 +34,16 @@ for (imName in im_names) {
                } else { 
                 colorCount[thisMatch,cnt] = colorCount[thisMatch,cnt]+1;
               }
-          }
+          #}
       }
   }  
   print(imName);  print(cnt);
 }
+
+
+colorCount[1,1] <- 0
+
+colorCount <- colorCount[order(colorCount[, 1], decreasing=FALSE),]
 
   ## save image names to first row of colorCount matrix
   colorCount[1,1] <- "color code"
