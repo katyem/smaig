@@ -242,12 +242,11 @@ twinStack <- function(cMarker=FALSE){
     x[i,2] = cubeY
     x[i,3] = cubeZ
   }
-
 }
 
 ## -------------------------------------------------------------------------------------
 # cube function is from https://gist.github.com/EconometricsBySimulation/5c00a9e91abebd889fb7
-cube <- function(x=2,y=-2,z=-2, bordered=FALSE, 
+cube <- function(x=0,y=0,z=0, bordered=FALSE, 
                  filled = TRUE, lwd=2, scale=1,
                  fillcol = 'blue',
                  bordercol ='gray', ...) {
